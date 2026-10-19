@@ -47,6 +47,18 @@ test("Post detail opens from Timeline", async ({ page }) => {
   await expect(page.getByText("Preview data", { exact: true })).toBeVisible();
 });
 
+test("Friends Profile gallery opens its matching Post Detail", async ({ page }) => {
+  await page.goto("/users/johndoe");
+  await page
+    .getByRole("link", {
+      name: "Open preview post: Friends smiling together for a close-up selfie",
+    })
+    .click();
+
+  await expect(page).toHaveURL(/\/posts\/preview-kids$/);
+  await expect(page.getByRole("heading", { name: "Comments" })).toBeVisible();
+});
+
 test("Protected preview actions explain limitations without API mutations", async ({ page }) => {
   const apiRequests: string[] = [];
   page.on("request", (request) => {

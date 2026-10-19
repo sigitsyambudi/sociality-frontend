@@ -9,6 +9,7 @@ export type PreviewProfilePost = {
   alt: string;
   id: string;
   imageSrc: string;
+  postId?: string;
 };
 
 export type PreviewProfile = {
