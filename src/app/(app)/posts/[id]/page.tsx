@@ -5,6 +5,7 @@ import {
   findPreviewPostDetail,
   previewPostDetails,
 } from "@/features/posts/preview-data";
+import { PREVIEW_ROUTE_ROBOTS } from "@/lib/site";
 
 export function generateStaticParams() {
   return previewPostDetails.map(({ post }) => ({ id: post.id }));
@@ -20,8 +21,9 @@ export async function generateMetadata({
     ? {
         title: `${detail.post.author.username}'s post | Sociality`,
         description: detail.post.caption,
+        robots: PREVIEW_ROUTE_ROBOTS,
       }
-    : { title: "Post not found | Sociality" };
+    : { title: "Post not found | Sociality", robots: PREVIEW_ROUTE_ROBOTS };
 }
 
 export default async function PostDetailPage({ params }: PageProps<"/posts/[id]">) {

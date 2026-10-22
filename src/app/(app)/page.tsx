@@ -6,6 +6,7 @@ import { previewPosts } from "@/features/timeline/preview-data";
 export const metadata: Metadata = {
   title: "Timeline | Sociality",
   description: "Preview the Sociality timeline experience.",
+  alternates: { canonical: "/" },
 };
 
 export default function TimelinePage() {

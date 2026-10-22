@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AppProviders } from "@/providers/app-providers";
+import { rootMetadata } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,10 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Sociality",
-  description: "Connect and share with Sociality.",
-};
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

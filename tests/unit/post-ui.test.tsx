@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { PostComposer } from "@/features/posts/components/post-composer";
 import { PostDetail } from "@/features/posts/components/post-detail";
+import { PostDetailSkeleton } from "@/features/posts/components/post-detail-states";
 import { previewPostDetails } from "@/features/posts/preview-data";
 import { MAX_POST_IMAGE_BYTES } from "@/features/posts/types";
 
@@ -51,5 +52,13 @@ describe("PostDetail comment validation", () => {
       "Write a comment before posting.",
     );
     expect(comment.getAttribute("aria-invalid")).toBe("true");
+  });
+
+  it("announces loading and disables its animation for reduced motion", () => {
+    render(<PostDetailSkeleton />);
+
+    const loading = screen.getByLabelText("Loading post detail");
+    expect(loading.getAttribute("aria-busy")).toBe("true");
+    expect(loading.className).toContain("motion-reduce:animate-none");
   });
 });

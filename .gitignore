@@ -46,3 +46,6 @@ next-env.d.ts
 
 # Local Figma design references
 /docs/reference/figma/
+
+# Local backend reference documents
+docs/reference/api-response-examples.md

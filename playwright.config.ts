@@ -13,7 +13,17 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
+      testMatch: /sociality\.spec\.ts/,
       use: { ...devices["Desktop Chrome"], channel: "chrome" },
+    },
+    {
+      name: "mobile-chrome",
+      testMatch: /mobile\.spec\.ts/,
+      use: {
+        ...devices["Desktop Chrome"],
+        channel: "chrome",
+        viewport: { width: 393, height: 852 },
+      },
     },
   ],
   webServer: {

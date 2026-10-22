@@ -77,7 +77,7 @@ export function ProfileSearch() {
           </div>
         ) : isFiltering ? (
           <div className="space-y-4 py-2" aria-hidden="true">
-            {Array.from({ length: 3 }, (_, index) => <div key={index} className="flex animate-pulse items-center gap-3"><span className="size-12 rounded-full bg-[#181d27]" /><span className="h-4 w-32 rounded bg-[#181d27]" /></div>)}
+            {Array.from({ length: 3 }, (_, index) => <div key={index} className="flex animate-pulse items-center gap-3 motion-reduce:animate-none"><span className="size-12 rounded-full bg-[#181d27]" /><span className="h-4 w-32 rounded bg-[#181d27]" /></div>)}
           </div>
         ) : results.length === 0 ? (
           <div className="flex min-h-[155px] flex-col items-center justify-center text-center">

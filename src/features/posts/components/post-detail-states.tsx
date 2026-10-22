@@ -5,7 +5,11 @@ import Link from "next/link";
 
 export function PostDetailSkeleton() {
   return (
-    <div className="mx-auto w-full max-w-[1200px] animate-pulse px-0 pb-24 lg:px-8 lg:pt-7">
+    <div
+      aria-busy="true"
+      aria-label="Loading post detail"
+      className="mx-auto w-full max-w-[1200px] animate-pulse px-0 pb-24 motion-reduce:animate-none lg:px-8 lg:pt-7"
+    >
       <span className="sr-only">Loading post detail</span>
       <div className="overflow-hidden bg-[#0a0d12] lg:grid lg:min-h-[620px] lg:grid-cols-[3fr_2fr] lg:rounded-xl lg:border lg:border-[#181d27]">
         <div className="aspect-square bg-[#11151c] lg:aspect-auto" />
